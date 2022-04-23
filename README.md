@@ -17,3 +17,4 @@ When on small screens, the active users list collapses into the menu.
 
 Chat scrolls up when a lot of messages are present.
 
+![App in action](https://ibb.co/HXgHDt0)
