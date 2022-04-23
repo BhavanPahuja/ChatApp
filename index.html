@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterChat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="title">
+                <img src = "assets/speech-bubble.png" width="45px">
+                <h1>Better Chat</h1>
+            </div>
+            <button type ="button" onclick="show_users()">
+                <img src = "assets/menu.png" width ="35px">
+            </button>
+        </header>
+
+        <div class="chat_container">
+            <div class="active_users">
+                <div class="users_heading">
+                    <h3>Active Users</h3>
+                </div>
+                <div class="users_list">
+                </div>
+            </div>
+            <div class="chat_window">
+                <div class="chat">
+                </div>
+                <div class="message_input">
+                    <button id="leave_chat" type = "button">Change Nickname</button>
+                    <input id="user_message" type="text" placeholder="Enter Message">
+                    <button id="send_message" type = "button">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var user_window = document.querySelector('.active_users');
+        function show_users() {
+            if(user_window.style.display=="block") {
+                user_window.style.display="none";
+            }
+            else {
+                user_window.style.display="block";
+            }
+        }
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+    
+    
+</body>
+</html>
