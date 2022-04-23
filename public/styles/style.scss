@@ -1,0 +1,183 @@
+//font-family: "Baloo 2", cursive;
+//font-family: "Poppins", sans-serif;
+
+//Color palette built using coolors.co
+$color-light: #009ddc;
+$color-gray: #7e878c;
+$color-dark-gray: #494949;
+$color-white: #ffffff;
+
+$font-primary: "Baloo 2", cursive;
+$font-secondary: "Poppins", sans-serif;
+$font-size: 16px;
+
+//Function we use to define flex properties
+@mixin flexProp($flexD, $justifyC, $alignI) {
+  display: flex;
+  flex-direction: $flexD;
+  align-items: $alignI;
+  justify-content: $justifyC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+//Center the container with our chat app
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  overflow: hidden;
+  border-radius: 5px;
+
+  header {
+    background-color: $color-light;
+    color: $color-white;
+    padding: 10px 20px;
+    @include flexProp(row, space-between, center);
+
+    div.title {
+      @include flexProp(row, flex-start, center);
+      h1 {
+        font-family: $font-primary;
+        font-size: 32px;
+        margin-left: 10px;
+      }
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      display: none;
+    }
+  }
+
+  div.chat_container {
+    background-color: $color-light;
+    padding: 20px;
+
+    @include flexProp(row, flex-start, stretch);
+
+    div.active_users {
+      width: 350px;
+      color: $color-white;
+      background-color: $color-dark-gray;
+      padding: 15px 15px;
+      border-radius: 5px;
+      margin-right: 25px;
+
+      div.users_heading {
+        @include flexProp(row, space-between, center);
+        margin-bottom: 15px;
+      }
+      div.users_list p {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+    }
+
+    div.chat_window {
+      background-color: $color-dark-gray;
+      width: 100%;
+      border-radius: 5px;
+
+      div.chat {
+        height: 65vh;
+        padding: 25px;
+        overflow-y: auto;
+
+        div.join {
+          width: max-content;
+          padding: 10px 20px;
+          margin: 0 auto;
+          font-size: 0.8rem;
+          color: $color-white;
+          border-radius: 5px;
+        }
+      }
+
+      div.message {
+        color: $color-dark-gray;
+        background-color: $color-white;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        max-width: 400px;
+        border-radius: 10px;
+        font-size: $font-size;
+      }
+      div.sent {
+        margin-left: auto;
+        color: $color-white;
+        background-color: $color-light;
+        border-radius: 10px;
+        text-align: right;
+      }
+
+      div.message_input {
+        @include flexProp(row, space-between, stretch);
+        padding: 20px;
+        input {
+          font-size: $font-size;
+          background-color: $color-white;
+          padding: 20px 20px;
+          border: none;
+          border-radius: 0px;
+          width: 100%;
+        }
+        button {
+          font-size: $font-size;
+          font-weight: 600;
+          padding: 10px 10px;
+          border: none;
+          border-radius: 0px;
+          letter-spacing: 1px;
+          background-color: $color-light;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 749px) {
+  main {
+    width: 90%;
+    header {
+      button {
+        display: block;
+      }
+    }
+
+    div.chat_container {
+      position: relative;
+      div.active_users {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+        padding-bottom: 0;
+        height: max-content;
+        box-shadow: 0 20px 20px -20px black;
+      }
+
+      div.chat_window {
+        div.chat {
+          div.message {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
