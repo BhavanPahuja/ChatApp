@@ -17,4 +17,4 @@ When on small screens, the active users list collapses into the menu.
 
 Chat scrolls up when a lot of messages are present.
 
-[Demo](screenshot.jpg)
+[Demo](BetterChat.jpg)
